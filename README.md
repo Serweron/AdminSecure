@@ -56,6 +56,8 @@ Each of these commands helps secure your server and ensures only authorized user
 ```yaml
 # config.yml
 
+prefix: "&8[&6AdminSecure&8] "
+
 messages:
   pin-not-set: "&cYou have not set a PIN yet."
   pin-set: "&eYour PIN has been set successfully."

@@ -73,7 +73,7 @@ public class ASListener implements Listener {
                         }
                     }
                 }).exceptionally(ex -> {
-                    player.sendMessage(ex.toString());
+                    player.sendMessage(plugin.getMessagesManager().pinRestriction());
                     return null;
                 });
                 break;
@@ -104,7 +104,7 @@ public class ASListener implements Listener {
                 }
             }
         }).exceptionally(ex -> {
-            player.sendMessage(ex.toString());
+            player.sendMessage(plugin.getMessagesManager().pinRestriction());
             return null;
         });
     }
@@ -114,7 +114,7 @@ public class ASListener implements Listener {
             plugin.getPinManager().setPin(player.getUniqueId(), newPin);
             player.sendMessage(plugin.getMessagesManager().pinSet());
         }).exceptionally(ex -> {
-            player.sendMessage(ex.toString());
+            player.sendMessage(plugin.getMessagesManager().pinRestriction());
             return null;
         });
     }

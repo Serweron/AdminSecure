@@ -30,13 +30,11 @@ public class PinManager {
 
     public CompletableFuture<String> getPinFromPlayer(Player player) {
         CompletableFuture<String> future = new CompletableFuture<>();
-
-        String pinLengthError = plugin.getMessagesManager().pinRestriction();
         int pinLength = plugin.getConfig().getInt("pin-restrictionss.length", 4);
 
         new AnvilGUI.Builder()
                 .onClose(p -> {
-                    future.completeExceptionally(new RuntimeException(pinLengthError));
+                    future.completeExceptionally(new RuntimeException());
                 })
                 .onClick((slot, stateSnapshot) -> {
                     if (slot != AnvilGUI.Slot.OUTPUT) {
@@ -44,7 +42,7 @@ public class PinManager {
                     }
                     String input = stateSnapshot.getText();
                     if (input == null || input.isEmpty() || input.length() < pinLength) {
-                        future.completeExceptionally(new RuntimeException(pinLengthError));
+                        future.completeExceptionally(new RuntimeException());
                         return AnvilGUI.Response.close();
                     }
                     future.complete(input);

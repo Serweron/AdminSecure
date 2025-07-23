@@ -10,7 +10,7 @@ public class MessagesManager {
     }
 
     public String get(String key) {
-        return plugin.getConfig().getString("messages." + key, "&cMessage not found: " + key).replace('&', '§');
+        return (plugin.getConfig().getString("prefix") + plugin.getConfig().getString("messages." + key, "&cMessage not found: " + key)).replace('&', '§');
     }
 
     public String pinNotSet() { return get("pin-not-set"); }
