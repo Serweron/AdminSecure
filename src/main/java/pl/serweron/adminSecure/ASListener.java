@@ -46,7 +46,7 @@ public class ASListener implements Listener {
                 if (!player.hasPermission("adminsecure.admin")) return;
                 e.setCancelled(true);
 
-                if (!plugin.getDatabase().getPin(uuid).isPresent()) {
+                if (plugin.getDatabase().getPin(uuid).isEmpty()) {
                     player.sendMessage(plugin.getMessagesManager().pinNotSet());
                     forceNewPin(player);
                 } else if (plugin.getPinManager().isPinExpired(uuid)) {

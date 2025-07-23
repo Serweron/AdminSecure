@@ -21,7 +21,7 @@ public class MessagesManager {
     public String pinRestriction() { return get("pin-restriction").replace("{length}", plugin.getConfig().getInt("pin-restrictions.length", 4) + ""); }
     public String pinAttemptsExceeded() { return get("pin-attempts-exceeded"); }
     public String pinExpired() { return get("pin-expired"); }
-    public String pinInputTitle() { return get("pin-input-title"); }
+    public String pinInputTitle() { return plugin.getConfig().getString("messages.pin-input-title" , "&cMessage not found: ").replace('&', '§'); }
     public String notConsole() { return get("not_console"); }
     public String notExists() { return get("not_exists"); }
     public String reload() { return get("reload"); }

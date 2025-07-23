@@ -85,9 +85,14 @@ public class ASCommand implements CommandExecutor, TabCompleter {
                 playerNames.add(player.getName());
             }
             return playerNames;
-        } else {
+        } else if (args.length == 1 && args[0].equalsIgnoreCase("pin")) {
+            return List.of("oldPin");
+        } else if (args.length == 2 && args[0].equalsIgnoreCase("pin")) {
+            return List.of("newPin");
+        } else if (args.length == 0) {
             return List.of("pin", "reset", "reload", "help");
         }
+        return List.of();
     }
 
     private void help() {

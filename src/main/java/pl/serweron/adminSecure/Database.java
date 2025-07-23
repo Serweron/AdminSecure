@@ -73,6 +73,7 @@ public class Database {
             if (rs.next()) {
                 return Optional.of(rs.getString("pin"));
             }
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -84,6 +85,7 @@ public class Database {
             PreparedStatement stmt = sqlConnection.prepareStatement("DELETE FROM " + tablePrefix + "pins WHERE uuid = ?");
             stmt.setString(1, uuid.toString());
             stmt.executeUpdate();
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -99,6 +101,7 @@ public class Database {
                 Timestamp expiredAt = rs.getTimestamp("expired_at");
                 return expiredAt != null && expiredAt.before(new Timestamp(System.currentTimeMillis()));
             }
+            stmt.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }

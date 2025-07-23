@@ -19,5 +19,3 @@ permissions:
     adminsecure.reload:
         description: Allows reloading the AdminSecure configuration
         default: op
-    adminsecure.bypass:
-        description: Bypass AdminSecure
