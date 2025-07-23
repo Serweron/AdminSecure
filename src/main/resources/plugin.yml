@@ -4,3 +4,20 @@ main: pl.serweron.adminSecure.AdminSecure
 api-version: '1.21'
 authors: [ MasnyPen ]
 website: serweron.pl
+
+commands:
+    adminsecure:
+        description: AdminSecure plugin commands
+        usage: /adminsecure <command>
+        aliases: [as]
+        permission: adminsecure.admin
+
+permissions:
+    adminsecure.admin:
+        description: Allows access to all AdminSecure commands
+        default: op
+    adminsecure.reload:
+        description: Allows reloading the AdminSecure configuration
+        default: op
+    adminsecure.bypass:
+        description: Bypass AdminSecure

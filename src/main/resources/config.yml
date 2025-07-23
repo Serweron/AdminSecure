@@ -1,0 +1,31 @@
+messages:
+  pin-not-set: "&cYou have not set a PIN yet."
+  pin-set: "&eYour PIN has been set successfully."
+  pin-reset: "&ePIN has been reset successfully."
+  pin-incorrect: "&cThe PIN you entered is incorrect. Please try again."
+  pin-banned: "&cYou have been banned due to too many incorrect attempts."
+  pin-restriction: "&cYour PIN must be exactly {length} characters long."
+  pin-attempts-exceeded: "&cYou have exceeded the maximum number of attempts. Please try again later."
+  pin-expired: "&cYour PIN has expired. Please set a new one."
+  pin-input-title: "&eEnter PIN:"
+  not_console: "&eYou cannot execute this command from the console."
+  not_exists: "&cThis player does not exist."
+  reload: "&6The configuration has been reloaded."
+
+pin-restrictions:
+  length: 4 # Length of the PIN
+  max-attempts: 3 # Maximum number of attempts before a user is banned
+  ban-time: 2 # in hours, how long the user is banned after exceeding the maximum number of attempts
+  reset-cooldown: 30 # in days
+  default-pin: "1234" # Default PIN for new users, can be changed by the user
+
+database:
+  type: "mysql" # Database type, can be "mysql" or "sqlite"
+  jdbc-url: "jdbc:mysql://localhost:3306/adminsecure"
+  username: "root"
+  password: "secret"
+  table-prefix: "adminsecure_"
+
+
+pin-commands:
+  - "ban"
